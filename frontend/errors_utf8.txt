@@ -1,0 +1,6 @@
+﻿.next/types/app/seed/page.ts(2,24): error TS2307: Cannot find module '../../../../src/app/seed/page.js' or its corresponding type declarations.
+.next/types/app/seed/page.ts(5,29): error TS2307: Cannot find module '../../../../src/app/seed/page.js' or its corresponding type declarations.
+src/test-db.ts(3,20): error TS2307: Cannot find module 'dotenv' or its corresponding type declarations.
+src/test-db.ts(11,31): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/test-tables.ts(3,20): error TS2307: Cannot find module 'dotenv' or its corresponding type declarations.

@@ -1,0 +1,9 @@
+# project-level ignores
+frontend.zip
+node_modules/
+.next/
+/frontend/node_modules/
+/frontend/.next/
+/frontend/webshopping_v2.3/
+.env*.local
+*.tsbuildinfo
