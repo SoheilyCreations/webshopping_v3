@@ -258,7 +258,9 @@ export default function MerchantPOS() {
     };
 
     const handleConfirmPurchase = async () => {
-        if (!selectedSupplier || purchaseCart.length === 0 || !shop) return;
+        const currentShop = shop;
+        const currentSupplier = selectedSupplier;
+        if (!currentSupplier || purchaseCart.length === 0 || !currentShop) return;
         setIsPurchasing(true);
 
         try {
@@ -312,8 +314,8 @@ export default function MerchantPOS() {
 
             const historyEntry: PurchaseRecord = {
                 id: 'grn-' + Date.now(),
-                supplierId: selectedSupplier.id,
-                supplierName: selectedSupplier.name,
+                supplierId: currentSupplier.id,
+                supplierName: currentSupplier.name,
                 items: purchaseCart.map(i => ({ productId: i.product.id, name: i.product.name, qty: i.qty, cost: i.cost, batchNo: i.batchNo, expireDate: i.expireDate })),
                 totalCost: totalCost,
                 date: new Date().toISOString(),
@@ -331,8 +333,8 @@ export default function MerchantPOS() {
             // 3. PUSH TO SUPABASE BACKEND
             // Also push the overarching Purchase Order securely to backend
             await supabase.from('purchase_orders').insert([{
-                shop_id: shop.id,
-                supplier_id: selectedSupplier.id,
+                shop_id: currentShop.id,
+                supplier_id: currentSupplier.id,
                 total_cost: totalCost,
                 payment_method: purchasePaymentData.method,
                 amount_paid: amountPaid,
