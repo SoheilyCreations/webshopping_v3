@@ -258,7 +258,7 @@ export default function MerchantPOS() {
     };
 
     const handleConfirmPurchase = async () => {
-        if (!selectedSupplier || purchaseCart.length === 0) return;
+        if (!selectedSupplier || purchaseCart.length === 0 || !shop) return;
         setIsPurchasing(true);
 
         try {
